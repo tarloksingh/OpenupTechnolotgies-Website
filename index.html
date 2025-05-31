@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0&display=swap" />
 
   <style>
-    /* Global Reset */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,20 +23,14 @@
       overflow-x: hidden;
       background: linear-gradient(to bottom, #FFAEAE, #FFE2E2);
       background-attachment: fixed;
-    }
-
-    body {
       font-family: "Kaisei Tokumin", serif;
       font-weight: 500;
       color: #1a1a1a;
-      min-height: 100vh;
     }
 
     @font-face {
       font-family: 'MyCustomFont';
       src: url('fonts/BlackPink-Cursive-Demo.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
     }
 
     header {
@@ -46,16 +39,41 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 22px;
+      position: relative;
     }
 
     .logo {
       font-family: 'MyCustomFont', cursive;
       font-size: 38px;
+      cursor: pointer;
     }
 
     .menu {
       font-size: 28px;
       color: #FEAEAE;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 22px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    .dropdown a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #1a1a1a;
+      border-bottom: 1px solid #eee;
+    }
+    .dropdown a:last-child {
+      border-bottom: none;
     }
 
     .container {
@@ -152,8 +170,13 @@
 <body>
 
   <header>
-    <div class="logo">Gala Reel</div>
-    <div class="menu">&#9776;</div>
+    <div class="logo" onclick="window.location.href='index.html'">Gala Reel</div>
+    <div class="menu" onclick="toggleMenu()">&#9776;</div>
+    <div class="dropdown" id="menuDropdown">
+      <a href="index.html">Home</a>
+      <a href="buy.html">Pricing</a>
+      <a href="tel:6825529882">Contact</a>
+    </div>
   </header>
 
   <div class="container">
@@ -166,7 +189,7 @@
 
     <p>With our keepsake cards, every guest gets access to a shared gallery that lets them upload the photos they take. No friction, just memories delivered straight to you.</p>
 
-    <div class="button">
+    <div class="button" onclick="window.location.href='buy.html'">
       Get your cards <span class="material-symbols-outlined">chevron_right</span>
     </div>
 
@@ -180,7 +203,7 @@
 
     <p>Your wedding only happens once and your guests capture moments you’ll never see unless you have a way to collect them. We ensure no toast, tear, or dance move disappears forever.</p>
 
-    <div class="button">
+    <div class="button" onclick="window.location.href='buy.html'">
       Buy your cards <span class="material-symbols-outlined">chevron_right</span>
     </div>
 
@@ -194,16 +217,23 @@
 
     <p>It’s the easiest way to make sure you don’t miss a single moment from your big day. Guests keep the card as a reminder, and you get all the behind-the-scenes, candid shots that even your photographer couldn’t catch all in one place.</p>
 
-    <div class="button">
+    <div class="button" onclick="window.location.href='buy.html'">
       Keep your memories <span class="material-symbols-outlined">chevron_right</span>
     </div>
 
     <footer>
-      <a href="#">Home</a>
-      <a href="#">Pricing</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="buy.html">Pricing</a>
+      <a href="tel:6825529882">Contact</a>
     </footer>
   </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuDropdown');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
 
 </body>
 </html>
