@@ -72,14 +72,16 @@
       color: #1a1a1a;
       border-bottom: 1px solid #eee;
     }
+
     .dropdown a:last-child {
       border-bottom: none;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 500px;
       margin: 0 auto;
       padding: 0 22px;
+      overflow-x: hidden;
     }
 
     h1, h2 {
@@ -126,22 +128,30 @@
 
     .image-wrapper {
       position: relative;
-      height: auto;
+      height: 300px;
       overflow: visible;
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .image-grow {
-      max-width: 100%;
-      height: auto;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: none;
     }
 
-    .image-large { width: 400px; }
-    .image-medium { width: 370px; }
-    .image-small { width: 600px; }
+    .image-large {
+      width: 400px;
+    }
+
+    .image-medium {
+      width: 370px;
+    }
+
+    .image-small {
+      width: 600px;
+    }
 
     footer {
       text-align: center;
@@ -157,31 +167,90 @@
       text-decoration: none;
     }
 
-    /* --- New --- */
-    .section {
-      display: block;
-      margin: 40px 0;
-    }
+    /* ========== DESKTOP OVERRIDES ========== */
+    @media screen and (min-width: 1024px) {
+      body {
+        background: linear-gradient(to right, #FFAEAE, #FFE2E2);
+        font-size: 18px;
+      }
 
-    @media (min-width: 768px) {
+      header {
+        padding: 20px 60px;
+      }
+
+      .logo {
+        font-size: 48px;
+      }
+
+      .menu {
+        display: none; /* hide hamburger on desktop */
+      }
+
+      .dropdown {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 1200px;
+        padding: 0 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+      }
+
       .section {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 40px;
+        gap: 60px;
       }
 
-      .section.reverse {
+      .section:nth-child(even) {
         flex-direction: row-reverse;
       }
 
-      .section .text {
+      .text-content {
         flex: 1;
       }
 
-      .section .image-wrapper {
+      .image-wrapper {
+        position: relative;
+        height: auto;
         flex: 1;
-        justify-content: flex-end;
+        max-width: 600px;
+      }
+
+      .image-grow {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 42px;
+        margin-bottom: 16px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .button {
+        font-size: 16px;
+        padding: 14px 28px;
+      }
+
+      footer {
+        margin-top: 100px;
+        font-size: 16px;
       }
     }
   </style>
@@ -199,12 +268,8 @@
   </header>
 
   <div class="container">
-
     <div class="section">
-      <div class="image-wrapper">
-        <img src="Card and app clip.png" alt="Keepsake card on phone" class="image-grow image-large" />
-      </div>
-      <div class="text">
+      <div class="text-content">
         <h2>A new party favor</h2>
         <h1>Don’t let your wedding get lost in camera rolls.</h1>
         <p>With our keepsake cards, every guest gets access to a shared gallery that lets them upload the photos they take. No friction, just memories delivered straight to you.</p>
@@ -212,14 +277,13 @@
           Get your cards <span class="material-symbols-outlined">chevron_right</span>
         </div>
       </div>
-
+      <div class="image-wrapper">
+        <img src="Card and app clip.png" alt="Keepsake card on phone" class="image-grow image-large" />
+      </div>
     </div>
 
-    <div class="section reverse">
-      <div class="image-wrapper">
-        <img src="Cardspng.png" alt="Tap your phone card" class="image-grow image-medium" />
-      </div>
-      <div class="text">
+    <div class="section">
+      <div class="text-content">
         <p><strong style="color: #f04242;">The complete story is now seen</strong></p>
         <h1>A keepsake for every guest so they never forget to add their photos.</h1>
         <p>Your wedding only happens once and your guests capture moments you’ll never see unless you have a way to collect them. We ensure no toast, tear, or dance move disappears forever.</p>
@@ -227,14 +291,13 @@
           Buy your cards <span class="material-symbols-outlined">chevron_right</span>
         </div>
       </div>
-
+      <div class="image-wrapper">
+        <img src="Cardspng.png" alt="Tap your phone card" class="image-grow image-medium" />
+      </div>
     </div>
 
     <div class="section">
-      <div class="image-wrapper">
-        <img src="Gallery.png" alt="Gallery app view" class="image-grow image-small" />
-      </div>
-      <div class="text">
+      <div class="text-content">
         <p><strong style="color: #f04242;">All the angles visible</strong></p>
         <h1>The gallery made by your guests, so you never miss a moment.</h1>
         <p>It’s the easiest way to make sure you don’t miss a single moment from your big day. Guests keep the card as a reminder, and you get all the behind-the-scenes, candid shots that even your photographer couldn’t catch all in one place.</p>
@@ -242,7 +305,9 @@
           Keep your memories <span class="material-symbols-outlined">chevron_right</span>
         </div>
       </div>
-
+      <div class="image-wrapper">
+        <img src="Gallery.png" alt="Gallery app view" class="image-grow image-small" />
+      </div>
     </div>
 
     <footer>
