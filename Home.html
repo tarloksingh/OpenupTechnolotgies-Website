@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gala Reel</title>
+
+  <!-- Google Font fallback (Inter replaced by Kaisei Tokumin for now) -->
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+      background: linear-gradient(to bottom, #FFAEAE, #FFE2E2);
+      background-attachment: fixed;
+    }
+
+    body {
+      font-family: "Kaisei Tokumin", serif;
+      font-weight: 800;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    @font-face {
+      font-family: 'MyCustomFont';
+      src: url('fonts/BlackPink-Cursive-Demo.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 22px;
+    }
+
+    .logo {
+      font-family: 'MyCustomFont', cursive;
+      font-size: 38px;
+    }
+
+    .menu {
+      font-size: 28px;
+      color: #FEAEAE;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    h1, h2 {
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #f04242;
+      margin-top: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-top: 12px;
+      color: #494949;
+    }
+
+    .button {
+      background-color: #FF3F3F;
+      color: white;
+      border: none;
+      border-radius: 100px;
+      padding: 12px 24px;
+      font-size: 15px;
+      margin: 20px 0;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .image-wrapper {
+      position: relative;
+      height: 300px; /* Adjust to match the space you want images to live in */
+      overflow: visible;
+      margin: 0 0;
+    }
+
+    .image-grow {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: none;
+    }
+
+    .image-large {
+      width: 400px;
+    }
+
+    .image-medium {
+      width: 370px;
+    }
+
+    .image-small {
+      width: 600px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding-bottom:10% ;
+      margin: 40px 40px;
+      color: #333;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Gala Reel</div>
+    <div class="menu">&#9776;</div>
+  </header>
+
+  <div class="container">
+    <h2>A new party favor</h2>
+    <h1>Don’t let your wedding get lost in camera rolls.</h1>
+
+    <div class="image-wrapper">
+      <img src="Card and app clip.png" alt="Keepsake card on phone" class="image-grow image-large" />
+    </div>
+
+    <p>With our keepsake cards, every guest gets access to a shared gallery that lets them upload the photos they take. No friction, just memories delivered straight to you.</p>
+
+    <div class="button">Get your cards</div>
+
+    <div class="image-wrapper">
+      <img src="Cardspng.png" alt="Tap your phone card" class="image-grow image-medium" />
+    </div>
+
+    <p><strong style="color: #f04242;">The complete story is now seen</strong></p>
+
+    <h1>A keepsake for every guest so they never forget to add their photos.</h1>
+
+    <p>Your wedding only happens once and your guests capture moments you’ll never see unless you have a way to collect them. We ensure no toast, tear, or dance move disappears forever.</p>
+
+    <div class="button">Buy your cards</div>
+
+    <div class="image-wrapper">
+      <img src="Gallery.png" alt="Gallery app view" class="image-grow image-small" />
+    </div>
+
+    <p><strong style="color: #f04242;">All the angles visible</strong></p>
+
+    <h1>The gallery made by your guests, so you never miss a moment.</h1>
+
+    <p>It’s the easiest way to make sure you don’t miss a single moment from your big day. Guests keep the card as a reminder, and you get all the behind-the-scenes, candid shots that even your photographer couldn’t catch all in one place.</p>
+
+    <div class="button">Keep your memories</div>
+
+    <footer>
+      <a href="#">Home</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact</a>
+    </footer>
+  </div>
+
+</body>
+</html>
