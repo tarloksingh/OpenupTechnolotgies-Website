@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gala Reel</title>
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,1,0&display=swap" />
 
   <style>
+    /* Reset & Global Styles */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,17 +21,19 @@
 
     html, body {
       height: 100%;
-      overflow-x: hidden;
       background: linear-gradient(to bottom, #FFAEAE, #FFE2E2);
       background-attachment: fixed;
       font-family: "Kaisei Tokumin", serif;
       font-weight: 500;
       color: #1a1a1a;
+      overflow-x: hidden;
     }
 
     @font-face {
       font-family: 'MyCustomFont';
       src: url('fonts/BlackPink-Cursive-Demo.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
     }
 
     header {
@@ -39,13 +42,11 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 22px;
-      position: relative;
     }
 
     .logo {
       font-family: 'MyCustomFont', cursive;
       font-size: 38px;
-      cursor: pointer;
     }
 
     .menu {
@@ -54,41 +55,19 @@
       cursor: pointer;
     }
 
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 22px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      display: none;
-      flex-direction: column;
-      z-index: 100;
-    }
-
-    .dropdown a {
-      padding: 10px 20px;
-      text-decoration: none;
-      color: #1a1a1a;
-      border-bottom: 1px solid #eee;
-    }
-    .dropdown a:last-child {
-      border-bottom: none;
-    }
-
     .container {
       max-width: 500px;
       margin: 0 auto;
       padding: 0 22px;
-      overflow-x: hidden;
     }
 
-    h1, h2 {
-      font-weight: bold;
+    .section {
+      margin: 60px 0;
     }
 
     h1 {
       font-size: 24px;
+      font-weight: bold;
       margin-top: 10px;
     }
 
@@ -116,7 +95,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      text-align: center;
       cursor: pointer;
     }
 
@@ -125,31 +103,9 @@
       vertical-align: middle;
     }
 
-    .image-wrapper {
-      position: relative;
-      height: 300px;
-      overflow: visible;
-      margin: 0;
-    }
-
-    .image-grow {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: none;
-    }
-
-    .image-large {
-      width: 400px;
-    }
-
-    .image-medium {
-      width: 370px;
-    }
-
-    .image-small {
-      width: 600px;
+    .section img {
+      width: 100%;
+      margin-top: 0;
     }
 
     footer {
@@ -165,75 +121,112 @@
       color: #333;
       text-decoration: none;
     }
+
+    /* Desktop Styles */
+    @media screen and (min-width: 768px) {
+      .container {
+        max-width: 1200px;
+        padding: 0 40px;
+      }
+
+      .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 100px 0;
+        gap: 60px;
+      }
+
+      .section.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .section img {
+        flex: 1;
+        max-width: 500px;
+        height: auto;
+        margin-top: 0;
+      }
+
+      .text-content {
+        flex: 1;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      .button {
+        font-size: 16px;
+        padding: 14px 28px;
+      }
+
+      footer {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo" onclick="window.location.href='index.html'">Gala Reel</div>
-    <div class="menu" onclick="toggleMenu()">&#9776;</div>
-    <div class="dropdown" id="menuDropdown">
-      <a href="index.html">Home</a>
-      <a href="buy.html">Pricing</a>
-      <a href="tel:6825529882">Contact</a>
-    </div>
+    <div class="logo">Gala Reel</div>
+    <div class="menu">&#9776;</div>
   </header>
 
   <div class="container">
-    <h2>A new party favor</h2>
-    <h1>Don’t let your wedding get lost in camera rolls.</h1>
 
-    <div class="image-wrapper">
-      <img src="Card and app clip.png" alt="Keepsake card on phone" class="image-grow image-large" />
+    <!-- Section 1 -->
+    <div class="section">
+      <img src="Card and app clip.png" alt="Keepsake card on phone" />
+      <div class="text-content">
+        <h2>A new party favor</h2>
+        <h1>Don’t let your wedding get lost in camera rolls.</h1>
+        <p>With our keepsake cards, every guest gets access to a shared gallery that lets them upload the photos they take. No friction, just memories delivered straight to you.</p>
+        <div class="button">
+          Get your cards <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
     </div>
 
-    <p>With our keepsake cards, every guest gets access to a shared gallery that lets them upload the photos they take. No friction, just memories delivered straight to you.</p>
-
-    <div class="button" onclick="window.location.href='buy.html'">
-      Get your cards <span class="material-symbols-outlined">chevron_right</span>
+    <!-- Section 2 -->
+    <div class="section reverse">
+      <img src="Cardspng.png" alt="Tap your phone card" />
+      <div class="text-content">
+        <h2>The complete story is now seen</h2>
+        <h1>A keepsake for every guest so they never forget to add their photos.</h1>
+        <p>Your wedding only happens once and your guests capture moments you’ll never see unless you have a way to collect them. We ensure no toast, tear, or dance move disappears forever.</p>
+        <div class="button">
+          Buy your cards <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
     </div>
 
-    <div class="image-wrapper">
-      <img src="Cardspng.png" alt="Tap your phone card" class="image-grow image-medium" />
+    <!-- Section 3 -->
+    <div class="section">
+      <img src="Gallery.png" alt="Gallery app view" />
+      <div class="text-content">
+        <h2>All the angles visible</h2>
+        <h1>The gallery made by your guests, so you never miss a moment.</h1>
+        <p>It’s the easiest way to make sure you don’t miss a single moment from your big day. Guests keep the card as a reminder, and you get all the behind-the-scenes, candid shots that even your photographer couldn’t catch all in one place.</p>
+        <div class="button">
+          Keep your memories <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
     </div>
 
-    <p><strong style="color: #f04242;">The complete story is now seen</strong></p>
-
-    <h1>A keepsake for every guest so they never forget to add their photos.</h1>
-
-    <p>Your wedding only happens once and your guests capture moments you’ll never see unless you have a way to collect them. We ensure no toast, tear, or dance move disappears forever.</p>
-
-    <div class="button" onclick="window.location.href='buy.html'">
-      Buy your cards <span class="material-symbols-outlined">chevron_right</span>
-    </div>
-
-    <div class="image-wrapper">
-      <img src="Gallery.png" alt="Gallery app view" class="image-grow image-small" />
-    </div>
-
-    <p><strong style="color: #f04242;">All the angles visible</strong></p>
-
-    <h1>The gallery made by your guests, so you never miss a moment.</h1>
-
-    <p>It’s the easiest way to make sure you don’t miss a single moment from your big day. Guests keep the card as a reminder, and you get all the behind-the-scenes, candid shots that even your photographer couldn’t catch all in one place.</p>
-
-    <div class="button" onclick="window.location.href='buy.html'">
-      Keep your memories <span class="material-symbols-outlined">chevron_right</span>
-    </div>
-
+    <!-- Footer -->
     <footer>
-      <a href="index.html">Home</a>
-      <a href="buy.html">Pricing</a>
-      <a href="tel:6825529882">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact</a>
     </footer>
-  </div>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menuDropdown');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-  </script>
+  </div>
 
 </body>
 </html>
