@@ -4,6 +4,11 @@
   },
   "applinks": {
     "apps": [],
-    "details": []
+    "details": [
+      {
+        "appID": "78B77F8YQ7.openuptechnologies.Gala-Reel-Demo",
+        "paths": ["/clip"]
+      }
+    ]
   }
 }
