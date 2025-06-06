@@ -1,0 +1,24 @@
+:root {
+  --background: rgba(234, 235, 239, 1);
+  --light-text: rgba(106, 123, 141, 1);
+  --small-empasised-font-family: "Inter", Helvetica;
+  --small-empasised-font-weight: 800;
+  --small-empasised-font-size: 18px;
+  --small-empasised-letter-spacing: -0.9px;
+  --small-empasised-line-height: normal;
+  --small-empasised-font-style: normal;
+  --small-light-font-family: "Inter", Helvetica;
+  --small-light-font-weight: 700;
+  --small-light-font-size: 16px;
+  --small-light-letter-spacing: -0.8px;
+  --small-light-line-height: normal;
+  --small-light-font-style: normal;
+  --small-ultralight-font-family: "Inter", Helvetica;
+  --small-ultralight-font-weight: 400;
+  --small-ultralight-font-size: 14px;
+  --small-ultralight-letter-spacing: 0px;
+  --small-ultralight-line-height: normal;
+  --small-ultralight-font-style: normal;
+  --card: 41px 47px 85px 0px rgba(0, 0, 0, 0.25);
+  --block-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+}
