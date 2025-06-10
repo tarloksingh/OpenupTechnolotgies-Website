@@ -314,14 +314,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  font-family: var(--medium-empasised-font-family);
-  font-weight: var(--medium-empasised-font-weight);
   padding: 13px 30px;
   background-color: #ffffff;
   width: 100%;
   position: relative;
 }
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 
 /* Centered logo with custom font */
 .h-eader .logo {
