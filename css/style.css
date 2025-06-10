@@ -11,6 +11,7 @@
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+
 }
 
 
@@ -22,6 +23,8 @@
   gap: 16px;
   display: flex;
   position: relative;
+  
+  
 }
 
 
@@ -35,6 +38,8 @@
   width: 100%;
   flex: 0 0 auto;
   background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
 }
 
 .iphone-pro-max .text-wrapper {
@@ -81,6 +86,8 @@
   width: 95%;
   background-color: #ffffff;
   border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
 }
 
 .iphone-pro-max .frame-2 {
@@ -110,6 +117,7 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
 }
 
 .iphone-pro-max .text-wrapper-3 {
@@ -202,10 +210,11 @@
   padding: 4.41px 16.54px;
   align-self: stretch;
   width: 100%;
-  background-color: #522929;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .30);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
+  
   position: relative;
 }
 
@@ -362,7 +371,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #323232;
+  background-color: #f75252;
   color: #ffffff;
   border-radius: 12px;
   height: 60px;
