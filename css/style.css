@@ -61,9 +61,13 @@
   align-self: stretch;
   align-self: center;
   width: 95%;
-  height: 428px;
+  height: 350px;
   border-radius: 15px;
-  background-color: #ffffff;
+   background: linear-gradient(
+    180deg,
+    rgba(255, 191, 191, 1) 0%,
+    rgba(255, 81, 81, 1) 100%
+  );
 }
 
 .iphone-pro-max .div {
