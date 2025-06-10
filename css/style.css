@@ -1,9 +1,4 @@
-@font-face {
-  font-family: "Black Pink-Cursive";
-  src: url("../fonts/BlackPink-Cursive-Demo.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .iphone-pro-max {
   display: flex;
@@ -12,7 +7,7 @@
   justify-content: flex-start;
   gap: 10px;
   position: relative;
-  background-color: #eaebef;
+  background-color: #F6F6F6;
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
@@ -40,16 +35,12 @@
   width: 100%;
   flex: 0 0 auto;
   background-color: #ffffff;
-  box-shadow: var(--block-shadow);
 }
 
 .iphone-pro-max .text-wrapper {
   position: relative;
   width: fit-content;
   margin-top: -1.00px;
-  text-shadow: 0px 9.92px 41.02px #ff000080;
-  font-family: "Black Pink-Cursive", Helvetica;
-  font-weight: 400;
   color: #000000;
   font-size: 44.1px;
   text-align: center;
@@ -65,18 +56,14 @@
 }
 
 .iphone-pro-max .photo {
-    margin-top: 25px;
+  margin-top: 15px;
   position: relative;
   align-self: stretch;
-  width: 100%;
+  align-self: center;
+  width: 95%;
   height: 428px;
   border-radius: 15px;
-  box-shadow: var(--block-shadow);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(231, 232, 236, 1) 100%
-  );
+  background-color: #ffffff;
 }
 
 .iphone-pro-max .div {
@@ -86,12 +73,10 @@
   gap: 25px;
   padding: 30px;
   position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
+  align-self: center;
+  width: 95%;
   background-color: #ffffff;
   border-radius: 15px;
-  box-shadow: var(--block-shadow);
 }
 
 .iphone-pro-max .frame-2 {
@@ -107,14 +92,20 @@
 .iphone-pro-max .text-wrapper-2 {
   position: relative;
   width: fit-content;
-  margin-top: -1.00px;
-  font-family: "Black Pink-Cursive", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 48px;
-  letter-spacing: 0;
+  font-family: 'Inter-ExtraBold', Helvetica;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -1px;
   line-height: normal;
   white-space: nowrap;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 191, 191, 1) 0%,
+    rgba(255, 81, 81, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .iphone-pro-max .text-wrapper-3 {
@@ -207,10 +198,9 @@
   padding: 4.41px 16.54px;
   align-self: stretch;
   width: 100%;
-  background-color: #323232;
+  background-color: #522929;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--block-shadow);
   display: flex;
   position: relative;
 }
@@ -233,7 +223,7 @@
   white-space: nowrap;
 }
 
-.iphone-pro-max .shipping-is-free-on {
+.iphone-pro-max .text-wrapper-9 {
   position: relative;
   align-self: stretch;
   font-family: var(--small-ultralight-font-family);
@@ -309,7 +299,7 @@
 
 .iphone-pro-max .frame-6 {
   flex-wrap: wrap;
-  width: 108px;
+  width: 100px;
   align-items: center;
   gap: 10px 10px;
   display: flex;
@@ -318,24 +308,32 @@
 /* Header layout */
 .h-eader {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   padding: 13px 30px;
   background-color: #ffffff;
-  box-shadow: var(--block-shadow);
   width: 100%;
   position: relative;
 }
 
 /* Centered logo with custom font */
 .h-eader .logo {
-  font-family: "Black Pink-Cursive", Helvetica, sans-serif;
-  font-size: 44.1px;
-  font-weight: 400;
-  color: #000000;
-  text-align: center;
-  white-space: nowrap;
+  position: relative;
   width: fit-content;
+  font-family: 'Inter-ExtraBold', Helvetica;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: normal;
+  white-space: nowrap;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 191, 191, 1) 0%,
+    rgba(255, 81, 81, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Default quantity buttons (not selected) */
@@ -359,7 +357,6 @@
   height: 60px;
   width: 100%;
   cursor: pointer;
-  box-shadow: var(--block-shadow);
   font-family: "Inter-Bold", Helvetica;
   font-size: 20px;
   font-weight: 700;
