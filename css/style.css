@@ -312,8 +312,9 @@
 /* Header layout */
 .h-eader {
   display: flex;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   font-family: var(--medium-empasised-font-family);
   font-weight: var(--medium-empasised-font-weight);
   padding: 13px 30px;
