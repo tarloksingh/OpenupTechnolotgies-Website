@@ -309,7 +309,18 @@
   line-height: var(--small-ultralight-line-height);
   font-style: var(--small-ultralight-font-style);
 }
-
+.iphone-pro-max .text-wrapper-10 {
+  position: relative;
+  width: fit-content;
+  margin-top: -5.51px;
+  font-family: var(--small-empasised-font-family);
+  font-weight: var(--small-empasised-font-weight);
+  color: #464646;
+  font-size: var(--small-empasised-font-size);
+  letter-spacing: var(--small-empasised-letter-spacing);
+  line-height: var(--small-empasised-line-height);
+  font-style: var(--small-empasised-font-style);
+}
 .iphone-pro-max .frame-6 {
   flex-wrap: wrap;
   width: 100px;
