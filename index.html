@@ -53,6 +53,14 @@
   })(document,window.mixpanel||[]);
   mixpanel.init("d238ee2c30a3b6997c2521e67ec6f8fb");
 
+  // Generate & assign unique ID for anonymous visitor
+  if (!mixpanel.get_distinct_id()) {
+    const uniqueId = 'anon_' + Math.random().toString(36).substr(2, 9);
+    mixpanel.identify(uniqueId);
+  } else {
+    mixpanel.identify(mixpanel.get_distinct_id());
+  }
+
   // Track page view
   mixpanel.track("Page Viewed", {
     page: window.location.pathname
@@ -84,14 +92,12 @@
 
       <div class="text-wrapper-6">Five cards. One unforgettable gift.</div>
 
-      <!-- Buy Button -->
-<a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" id="buy-now-button" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-  <div class="frame-4 add-to-cart" style="width: 100%;">
-    <div class="buy-now-text">Buy Now</div>
-  </div>
-</a>
-
-
+      <!-- Buy Button (full-width, fully clickable) -->
+      <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" id="buy-now-button" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+        <div class="frame-4 add-to-cart" style="width: 100%; text-align: center;">
+          <div class="buy-now-text">Buy Now</div>
+        </div>
+      </a>
     </div>
 
     <div class="div">
@@ -104,9 +110,9 @@
         <span class="text-wrapper-10">The Countdown<br /></span>
         <span class="text-wrapper-9">A countdown timer that builds up to a surprise.<br /><br /></span>
         <span class="text-wrapper-10">The Digital Gift<br /></span>
-        <span class="text-wrapper-9">A 3D gift that will always be visibile, no matter where you are. <br /><br /></span>
+        <span class="text-wrapper-9">A 3D gift that will always be visible, no matter where you are. <br /><br /></span>
         <span class="text-wrapper-10">The Time Capsule<br /></span>
-        <span class="text-wrapper-9">A message that unlocks after a certain date.  </span>
+        <span class="text-wrapper-9">A message that unlocks after a certain date.</span>
       </p>
     </div>
 
@@ -114,9 +120,9 @@
       <div class="text-wrapper-2">How it works</div>
       <p class="p">
         <span class="text-wrapper-9">1. Order your 5-pack of Lovetap cards.<br /></span>
-        <span class="text-wrapper-9">2. We ship the cards straight to your door.<br  /></span>
-        <span class="text-wrapper-9">3. Tap each card with your phone to activate.<br  /></span>
-        <span class="text-wrapper-9">4. Choose what to embed: a message, photo, countdown, or memory.<br  /></span>
+        <span class="text-wrapper-9">2. We ship the cards straight to your door.<br /></span>
+        <span class="text-wrapper-9">3. Tap each card with your phone to activate.<br /></span>
+        <span class="text-wrapper-9">4. Choose what to embed: a message, photo, countdown, or memory.<br /></span>
         <span class="text-wrapper-9">5. Give them to someone you love.<br /></span>
       </p>
     </div>
