@@ -3,175 +3,396 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lovetap</title>
+  <title>TapCard - Smart NFC Business Cards</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
+  
   <!-- External CSS -->
   <link rel="stylesheet" href="css/globals.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/styleguide.css" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaisei+Tokumin:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Mixpanel Analytics -->
-<!-- Mixpanel Setup -->
-<script type="text/javascript">
-(function(e,a){
-  if(!a.__SV){
-    var b=window;try{
-      var c,l,i,j=b.location,g=j.hash;
-      c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};
-      if(g && c(g,"state")){
-        i=JSON.parse(decodeURIComponent(c(g,"state")));
-        if(i.action==="mpeditor"){
-          b.sessionStorage.setItem("_mpcehash",g);
-          history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search);
+  <script type="text/javascript">
+  (function(e,a){
+    if(!a.__SV){
+      var b=window;try{
+        var c,l,i,j=b.location,g=j.hash;
+        c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};
+        if(g && c(g,"state")){
+          i=JSON.parse(decodeURIComponent(c(g,"state")));
+          if(i.action==="mpeditor"){
+            b.sessionStorage.setItem("_mpcehash",g);
+            history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search);
+          }
         }
-      }
-    }catch(m){}
-    var k,h;window.mixpanel=a;a._i=[];
-    a.init=function(b,c,f){
-      function e(b,a){
-        var c=a.split(".");
-        if(c.length==2){b=b[c[0]];a=c[1]}
-        b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}
-      }
-      var d=a;
-      if(typeof f!=="undefined"){d=a[f]=[]}else{f="mixpanel"}
-      d.people=d.people||[];
-      d.toString=function(b){
-        var a="mixpanel";
-        if(f!=="mixpanel"){a+="."+f}
-        if(!b){a+=" (stub)"}
-        return a
+      }catch(m){}
+      var k,h;window.mixpanel=a;a._i=[];
+      a.init=function(b,c,f){
+        function e(b,a){
+          var c=a.split(".");
+          if(c.length==2){b=b[c[0]];a=c[1]}
+          b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}
+        }
+        var d=a;
+        if(typeof f!=="undefined"){d=a[f]=[]}else{f="mixpanel"}
+        d.people=d.people||[];
+        d.toString=function(b){
+          var a="mixpanel";
+          if(f!=="mixpanel"){a+="."+f}
+          if(!b){a+=" (stub)"}
+          return a
+        };
+        d.people.toString=function(){
+          return d.toString(1)+".people (stub)"
+        };
+        k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(h=0;h<k.length;h++)e(d,k[h]);
+        a._i.push([b,c,f])
       };
-      d.people.toString=function(){
-        return d.toString(1)+".people (stub)"
-      };
-      k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-      for(h=0;h<k.length;h++)e(d,k[h]);
-      a._i.push([b,c,f])
-    };
-    a.__SV=1.2;
-    var script=e.createElement("script");
-    script.type="text/javascript";
-    script.async=!0;
-    script.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-    var firstScript=e.getElementsByTagName("script")[0];
-    firstScript.parentNode.insertBefore(script,firstScript)
-  }
-})(document,window.mixpanel||[]);
+      a.__SV=1.2;
+      var script=e.createElement("script");
+      script.type="text/javascript";
+      script.async=!0;
+      script.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+      var firstScript=e.getElementsByTagName("script")[0];
+      firstScript.parentNode.insertBefore(script,firstScript)
+    }
+  })(document,window.mixpanel||[]);
 
-mixpanel.init("d238ee2c30a3b6997c2521e67ec6f8fb");
+  mixpanel.init("d238ee2c30a3b6997c2521e67ec6f8fb");
 
-// Only track after page fully loads
-window.addEventListener("load", function () {
-  console.log("Tracking Page View");
-  mixpanel.track("Page Viewed", {
-    page: window.location.pathname,
-    distinct_id: mixpanel.get_distinct_id()
+  window.addEventListener("load", function () {
+    mixpanel.track("Page Viewed", {
+      page: window.location.pathname,
+      distinct_id: mixpanel.get_distinct_id()
+    });
   });
-});
-</script>
-
+  </script>
 </head>
+
 <body>
-
-<!-- Shared Header -->
-<header class="h-eader">
-  <div class="header-content">
-    <img src="fonts/icon.svg" class="logo-icon">
-    <div class="text-wrapper logo" onclick="window.location.href='index.html'">Lovetap</div>
-  </div>
-</header>
-
-<!-- Product Buy Page Structure -->
-<div class="iphone-pro-max">
-  <div class="frame">
-    <div class="photo">
-      <img src="Photo 1.png" alt="Lovetap Card Preview" class="photo-img">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">TapCard</div>
+      <nav class="nav-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="div">
-      <div class="frame-2">
-        <div class="text-wrapper-2">Lovetap Cards</div>
-        <div class="text-wrapper-2">$49.99</div>
-      </div>
-
-      <div class="text-wrapper-10">Five cards. One unforgettable gift.</div>
-
-      <!-- Buy Button (full-width, fully clickable) -->
-      <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" id="buy-now-button" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-        <div class="frame-4 add-to-cart" style="width: 100%; text-align: center;">
-          <div class="buy-now-text">Buy Now</div>
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-card card">
+        <div class="hero-content">
+          <h1 class="hero-title">Smart NFC Business Cards</h1>
+          <p class="hero-subtitle">The Future of Professional Networking</p>
+          <p class="hero-description">
+            Never run out of business cards again. Share your contact info instantly with a simple tap on any smartphone. No app required.
+          </p>
+          
+          <div class="hero-features">
+            <div class="hero-feature">
+              <span class="hero-feature-icon">📱</span>
+              <span>Instant sharing</span>
+            </div>
+            <div class="hero-feature">
+              <span class="hero-feature-icon">🔄</span>
+              <span>Always updated</span>
+            </div>
+            <div class="hero-feature">
+              <span class="hero-feature-icon">🌱</span>
+              <span>Eco-friendly</span>
+            </div>
+          </div>
         </div>
-      </a>
-    </div>
-        <div class="div">
-      <div class="text-wrapper-2">How it works </div>
-        <img src="App_Clip.png" alt="Lovetap Card Preview" class="photo-img">
+        
+        <div class="hero-visual">
+          <div class="product-showcase">
+            <div class="nfc-card-mockup">
+              <div class="card-front">
+                <div class="nfc-indicator">NFC</div>
+                <div class="card-info">
+                  <div class="card-name">Sarah Johnson</div>
+                  <div class="card-title">UX Designer</div>
+                  <div class="card-company">TechCorp Inc.</div>
+                </div>
+                <div class="nfc-symbol">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 8L18 8"></path>
+                    <path d="M6 12L18 12"></path>
+                    <path d="M6 16L14 16"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <div class="contact-preview">
+                  <div class="contact-avatar">SJ</div>
+                  <div class="contact-info">
+                    <div class="contact-name">Sarah Johnson</div>
+                    <div class="contact-role">UX Designer</div>
+                  </div>
+                  <button class="save-contact-btn">Save Contact</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p class="p">
-        <span class="text-wrapper-9">1. Order your 5-pack of Lovetap cards.<br /></span>
-        <span class="text-wrapper-9">2. We ship the cards straight to your door.<br /></span>
-        <span class="text-wrapper-9">3. Tap each card with your phone to activate.Powered by NFC technology.<br /></span>
-        <span class="text-wrapper-9">4. Choose what to embed: a message, photo, countdown, or memory.<br /></span>
-        <span class="text-wrapper-9">5. Give them to someone you love and watch their eyes light up. .<br /></span>
-      </p>
-    </div>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+      <div class="pricing-card card">
+        <div class="pricing-header">
+          <h2 class="section-title">Get Your Smart Cards</h2>
+          <div class="price-display">
+            <span class="price">$29.99</span>
+            <span class="price-note">per card + platform access</span>
+          </div>
+        </div>
+        
+        <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" id="buy-now-button" class="cta-button">
+          <span class="cta-text">Order Your Cards</span>
+          <span class="cta-icon">→</span>
+        </a>
+        
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Physical NFC card (credit card size)</span>
+          </div>
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Digital profile platform access</span>
+          </div>
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Unlimited profile updates</span>
+          </div>
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Analytics & insights</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="div">
-      <div class="text-wrapper-2">Five Life Changing Cards</div>
-      <p class="p">
-        <span class="text-wrapper-10">The Voice Note<br /></span>
-        <span class="text-wrapper-9">Say something so beautiful that their heart melts. <br /><br /></span>
-        <span class="text-wrapper-10">The Memory Reel<br /></span>
-        <span class="text-wrapper-9">A photo/video collage of your favorite moments together.<br /><br /></span>
-        <span class="text-wrapper-10">The Countdown<br /></span>
-        <span class="text-wrapper-9">A countdown timer that builds up to a surprise.<br /><br /></span>
-        <span class="text-wrapper-10">The Digital Gift<br /></span>
-        <span class="text-wrapper-9">A 3D gift that will always be visible, no matter where you are. <br /><br /></span>
-        <span class="text-wrapper-10">The Time Capsule<br /></span>
-        <span class="text-wrapper-9">A message that unlocks after a certain date.</span>
-      </p>
-    </div>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="features-card card">
+        <h2 class="section-title">Why Choose TapCard?</h2>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">📲</div>
+            <h3 class="feature-title">Instant Sharing</h3>
+            <p class="feature-description">Just tap your card on any smartphone to instantly share your contact details. Works with iPhone and Android.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🔄</div>
+            <h3 class="feature-title">Always Updated</h3>
+            <p class="feature-description">Update your information once and it changes everywhere. No more outdated business cards.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🌐</div>
+            <h3 class="feature-title">Professional Profile</h3>
+            <p class="feature-description">Beautiful digital profile with photo, contact info, social links, and more. Make a lasting impression.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <h3 class="feature-title">Track Engagement</h3>
+            <p class="feature-description">See who viewed your profile and when. Get insights into your networking effectiveness.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🌱</div>
+            <h3 class="feature-title">Eco-Friendly</h3>
+            <p class="feature-description">Reduce paper waste with digital cards that last forever. One card replaces thousands of paper cards.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">No App Required</h3>
+            <p class="feature-description">Recipients don't need to download anything. Works with built-in NFC on all modern smartphones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+      <div class="how-it-works-card card">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started in minutes, networking like a pro</p>
+        
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Order Your Cards</h3>
+              <p>Choose your quantity and we'll ship premium NFC cards directly to your door within 5-7 business days.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Setup Your Profile</h3>
+              <p>Tap your card with your phone to activate it, then customize your digital profile with photo, contact info, and links.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Start Networking</h3>
+              <p>Simply tap your card on anyone's phone to instantly share your contact info. They can save it with one tap.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Track & Update</h3>
+              <p>See who viewed your profile and update your information anytime. Changes reflect instantly on all shared profiles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="benefits-card card">
+        <h2 class="section-title">Perfect For</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-category">
+            <h3 class="benefit-title">Sales Professionals</h3>
+            <ul class="benefit-list">
+              <li>Never run out of cards at events</li>
+              <li>Track prospect engagement</li>
+              <li>Update pricing and services instantly</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-category">
+            <h3 class="benefit-title">Real Estate Agents</h3>
+            <ul class="benefit-list">
+              <li>Share property listings instantly</li>
+              <li>Include virtual tour links</li>
+              <li>Professional, modern image</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-category">
+            <h3 class="benefit-title">Entrepreneurs</h3>
+            <ul class="benefit-list">
+              <li>Stand out at networking events</li>
+              <li>Include pitch deck links</li>
+              <li>Track investor interactions</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-category">
+            <h3 class="benefit-title">Consultants</h3>
+            <ul class="benefit-list">
+              <li>Share portfolio and case studies</li>
+              <li>Include calendar booking links</li>
+              <li>Professional credibility boost</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="div">
-      <div class="text-wrapper-2">Shipping</div>
-      <p class="p">
-        <span class="text-wrapper-9">Free shipping on all orders.<br /></span>
-        <span class="text-wrapper-9">Lovetap cards ship within 6-8 weeks.<br /></span>
-      </p>
-    </div>
+    <!-- Shipping Info -->
+    <section class="shipping-section">
+      <div class="shipping-card card">
+        <h2 class="section-title">Shipping & Support</h2>
+        
+        <div class="shipping-info">
+          <div class="shipping-item">
+            <div class="shipping-icon">🚚</div>
+            <div class="shipping-content">
+              <h3>Fast Shipping</h3>
+              <p>Free shipping on all orders. Cards ship within 5-7 business days.</p>
+            </div>
+          </div>
+          
+          <div class="shipping-item">
+            <div class="shipping-icon">💯</div>
+            <div class="shipping-content">
+              <h3>Quality Guarantee</h3>
+              <p>Premium materials with 2-year warranty. Not satisfied? Full refund within 30 days.</p>
+            </div>
+          </div>
+          
+          <div class="shipping-item">
+            <div class="shipping-icon">🎯</div>
+            <div class="shipping-content">
+              <h3>24/7 Support</h3>
+              <p>Our team is here to help with setup, customization, and any questions you have.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="frame-5">
-      <div class="text-wrapper-7">Resources</div>
-      <a href="tel:+16825529882" class="text-wrapper-8">Contact</a>
-      <a href="terms.html" class="text-wrapper-8">Terms of Service</a>
-      <a href="privacy.html" class="text-wrapper-8">Privacy Policy</a>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:support@tapcard.co">Support</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="tel:+16825529882">Contact</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/tarloksingh111/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@tarlok-r5t" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.tiktok.com/@galareel11" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
     </div>
-    <div class="frame-6">
-      <div class="text-wrapper-7">Socials</div>
-      <a href="https://www.instagram.com/tarloksingh111/" target="_blank" rel="noopener noreferrer" class="text-wrapper-8">Instagram</a>
-      <a href="https://www.youtube.com/@tarlok-r5t" target="_blank" rel="noopener noreferrer" class="text-wrapper-8">YouTube</a>
-      <a href="https://www.tiktok.com/@galareel11" target="_blank" rel="noopener noreferrer" class="text-wrapper-8">TikTok</a>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 TapCard. All rights reserved.</p>
     </div>
   </footer>
-</div>
 
-<!-- Track Buy Button Click -->
-<script>
-document.getElementById("buy-now-button").addEventListener("click", function() {
-  mixpanel.track("Buy Button Clicked", {
-    page: window.location.pathname
+  <!-- Track Buy Button Click -->
+  <script>
+  document.getElementById("buy-now-button").addEventListener("click", function() {
+    mixpanel.track("Buy Button Clicked", {
+      page: window.location.pathname
+    });
   });
-});
-</script>
-
+  </script>
 </body>
 </html>

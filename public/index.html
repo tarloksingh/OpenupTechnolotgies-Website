@@ -1,89 +1,398 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TapCard - Smart NFC Business Cards</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/globals.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styleguide.css" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.8.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.8.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.8.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+  <!-- Mixpanel Analytics -->
+  <script type="text/javascript">
+  (function(e,a){
+    if(!a.__SV){
+      var b=window;try{
+        var c,l,i,j=b.location,g=j.hash;
+        c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};
+        if(g && c(g,"state")){
+          i=JSON.parse(decodeURIComponent(c(g,"state")));
+          if(i.action==="mpeditor"){
+            b.sessionStorage.setItem("_mpcehash",g);
+            history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search);
+          }
         }
-      });
-    </script>
-  </body>
+      }catch(m){}
+      var k,h;window.mixpanel=a;a._i=[];
+      a.init=function(b,c,f){
+        function e(b,a){
+          var c=a.split(".");
+          if(c.length==2){b=b[c[0]];a=c[1]}
+          b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}
+        }
+        var d=a;
+        if(typeof f!=="undefined"){d=a[f]=[]}else{f="mixpanel"}
+        d.people=d.people||[];
+        d.toString=function(b){
+          var a="mixpanel";
+          if(f!=="mixpanel"){a+="."+f}
+          if(!b){a+=" (stub)"}
+          return a
+        };
+        d.people.toString=function(){
+          return d.toString(1)+".people (stub)"
+        };
+        k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(h=0;h<k.length;h++)e(d,k[h]);
+        a._i.push([b,c,f])
+      };
+      a.__SV=1.2;
+      var script=e.createElement("script");
+      script.type="text/javascript";
+      script.async=!0;
+      script.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+      var firstScript=e.getElementsByTagName("script")[0];
+      firstScript.parentNode.insertBefore(script,firstScript)
+    }
+  })(document,window.mixpanel||[]);
+
+  mixpanel.init("d238ee2c30a3b6997c2521e67ec6f8fb");
+
+  window.addEventListener("load", function () {
+    mixpanel.track("Page Viewed", {
+      page: window.location.pathname,
+      distinct_id: mixpanel.get_distinct_id()
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">TapCard</div>
+      <nav class="nav-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-card card">
+        <div class="hero-content">
+          <h1 class="hero-title">Smart NFC Business Cards</h1>
+          <p class="hero-subtitle">The Future of Professional Networking</p>
+          <p class="hero-description">
+            Never run out of business cards again. Share your contact info instantly with a simple tap on any smartphone. No app required.
+          </p>
+          
+          <div class="hero-features">
+            <div class="hero-feature">
+              <span class="hero-feature-icon">📱</span>
+              <span>Instant sharing</span>
+            </div>
+            <div class="hero-feature">
+              <span class="hero-feature-icon">🔄</span>
+              <span>Always updated</span>
+            </div>
+            <div class="hero-feature">
+              <span class="hero-feature-icon">🌱</span>
+              <span>Eco-friendly</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div class="product-showcase">
+            <div class="nfc-card-mockup">
+              <div class="card-front">
+                <div class="nfc-indicator">NFC</div>
+                <div class="card-info">
+                  <div class="card-name">Sarah Johnson</div>
+                  <div class="card-title">UX Designer</div>
+                  <div class="card-company">TechCorp Inc.</div>
+                </div>
+                <div class="nfc-symbol">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 8L18 8"></path>
+                    <path d="M6 12L18 12"></path>
+                    <path d="M6 16L14 16"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <div class="contact-preview">
+                  <div class="contact-avatar">SJ</div>
+                  <div class="contact-info">
+                    <div class="contact-name">Sarah Johnson</div>
+                    <div class="contact-role">UX Designer</div>
+                  </div>
+                  <button class="save-contact-btn">Save Contact</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+      <div class="pricing-card card">
+        <div class="pricing-header">
+          <h2 class="section-title">Get Your Smart Cards</h2>
+          <div class="price-display">
+            <span class="price">$29.99</span>
+            <span class="price-note">per card + platform access</span>
+          </div>
+        </div>
+        
+        <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" id="buy-now-button" class="cta-button">
+          <span class="cta-text">Order Your Cards</span>
+          <span class="cta-icon">→</span>
+        </a>
+        
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Physical NFC card (credit card size)</span>
+          </div>
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Digital profile platform access</span>
+          </div>
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Unlimited profile updates</span>
+          </div>
+          <div class="pricing-feature">
+            <span class="check-icon">✓</span>
+            <span>Analytics & insights</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="features-card card">
+        <h2 class="section-title">Why Choose TapCard?</h2>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">📲</div>
+            <h3 class="feature-title">Instant Sharing</h3>
+            <p class="feature-description">Just tap your card on any smartphone to instantly share your contact details. Works with iPhone and Android.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🔄</div>
+            <h3 class="feature-title">Always Updated</h3>
+            <p class="feature-description">Update your information once and it changes everywhere. No more outdated business cards.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🌐</div>
+            <h3 class="feature-title">Professional Profile</h3>
+            <p class="feature-description">Beautiful digital profile with photo, contact info, social links, and more. Make a lasting impression.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <h3 class="feature-title">Track Engagement</h3>
+            <p class="feature-description">See who viewed your profile and when. Get insights into your networking effectiveness.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🌱</div>
+            <h3 class="feature-title">Eco-Friendly</h3>
+            <p class="feature-description">Reduce paper waste with digital cards that last forever. One card replaces thousands of paper cards.</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">No App Required</h3>
+            <p class="feature-description">Recipients don't need to download anything. Works with built-in NFC on all modern smartphones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+      <div class="how-it-works-card card">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started in minutes, networking like a pro</p>
+        
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Order Your Cards</h3>
+              <p>Choose your quantity and we'll ship premium NFC cards directly to your door within 5-7 business days.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Setup Your Profile</h3>
+              <p>Tap your card with your phone to activate it, then customize your digital profile with photo, contact info, and links.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Start Networking</h3>
+              <p>Simply tap your card on anyone's phone to instantly share your contact info. They can save it with one tap.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Track & Update</h3>
+              <p>See who viewed your profile and update your information anytime. Changes reflect instantly on all shared profiles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="benefits-card card">
+        <h2 class="section-title">Perfect For</h2>
+        
+        <div class="benefits-grid">
+          <div class="benefit-category">
+            <h3 class="benefit-title">Sales Professionals</h3>
+            <ul class="benefit-list">
+              <li>Never run out of cards at events</li>
+              <li>Track prospect engagement</li>
+              <li>Update pricing and services instantly</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-category">
+            <h3 class="benefit-title">Real Estate Agents</h3>
+            <ul class="benefit-list">
+              <li>Share property listings instantly</li>
+              <li>Include virtual tour links</li>
+              <li>Professional, modern image</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-category">
+            <h3 class="benefit-title">Entrepreneurs</h3>
+            <ul class="benefit-list">
+              <li>Stand out at networking events</li>
+              <li>Include pitch deck links</li>
+              <li>Track investor interactions</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-category">
+            <h3 class="benefit-title">Consultants</h3>
+            <ul class="benefit-list">
+              <li>Share portfolio and case studies</li>
+              <li>Include calendar booking links</li>
+              <li>Professional credibility boost</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shipping Info -->
+    <section class="shipping-section">
+      <div class="shipping-card card">
+        <h2 class="section-title">Shipping & Support</h2>
+        
+        <div class="shipping-info">
+          <div class="shipping-item">
+            <div class="shipping-icon">🚚</div>
+            <div class="shipping-content">
+              <h3>Fast Shipping</h3>
+              <p>Free shipping on all orders. Cards ship within 5-7 business days.</p>
+            </div>
+          </div>
+          
+          <div class="shipping-item">
+            <div class="shipping-icon">💯</div>
+            <div class="shipping-content">
+              <h3>Quality Guarantee</h3>
+              <p>Premium materials with 2-year warranty. Not satisfied? Full refund within 30 days.</p>
+            </div>
+          </div>
+          
+          <div class="shipping-item">
+            <div class="shipping-icon">🎯</div>
+            <div class="shipping-content">
+              <h3>24/7 Support</h3>
+              <p>Our team is here to help with setup, customization, and any questions you have.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:support@tapcard.co">Support</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="tel:+16825529882">Contact</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/tarloksingh111/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@tarlok-r5t" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.tiktok.com/@galareel11" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 TapCard. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Track Buy Button Click -->
+  <script>
+  document.getElementById("buy-now-button").addEventListener("click", function() {
+    mixpanel.track("Buy Button Clicked", {
+      page: window.location.pathname
+    });
+  });
+  </script>
+</body>
 </html>
