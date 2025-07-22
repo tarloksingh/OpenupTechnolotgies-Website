@@ -1,398 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TapCard - Smart NFC Business Cards</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  
-  <!-- External CSS -->
-  <link rel="stylesheet" href="css/globals.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/styleguide.css" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Mixpanel Analytics -->
-  <script type="text/javascript">
-  (function(e,a){
-    if(!a.__SV){
-      var b=window;try{
-        var c,l,i,j=b.location,g=j.hash;
-        c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};
-        if(g && c(g,"state")){
-          i=JSON.parse(decodeURIComponent(c(g,"state")));
-          if(i.action==="mpeditor"){
-            b.sessionStorage.setItem("_mpcehash",g);
-            history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search);
-          }
-        }
-      }catch(m){}
-      var k,h;window.mixpanel=a;a._i=[];
-      a.init=function(b,c,f){
-        function e(b,a){
-          var c=a.split(".");
-          if(c.length==2){b=b[c[0]];a=c[1]}
-          b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}
-        }
-        var d=a;
-        if(typeof f!=="undefined"){d=a[f]=[]}else{f="mixpanel"}
-        d.people=d.people||[];
-        d.toString=function(b){
-          var a="mixpanel";
-          if(f!=="mixpanel"){a+="."+f}
-          if(!b){a+=" (stub)"}
-          return a
-        };
-        d.people.toString=function(){
-          return d.toString(1)+".people (stub)"
-        };
-        k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-        for(h=0;h<k.length;h++)e(d,k[h]);
-        a._i.push([b,c,f])
-      };
-      a.__SV=1.2;
-      var script=e.createElement("script");
-      script.type="text/javascript";
-      script.async=!0;
-      script.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-      var firstScript=e.getElementsByTagName("script")[0];
-      firstScript.parentNode.insertBefore(script,firstScript)
-    }
-  })(document,window.mixpanel||[]);
-
-  mixpanel.init("d238ee2c30a3b6997c2521e67ec6f8fb");
-
-  window.addEventListener("load", function () {
-    mixpanel.track("Page Viewed", {
-      page: window.location.pathname,
-      distinct_id: mixpanel.get_distinct_id()
-    });
-  });
-  </script>
-</head>
-
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-container">
-      <div class="logo">TapCard</div>
-      <nav class="nav-menu">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#how-it-works" class="nav-link">How It Works</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main Container -->
-  <div class="main-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wyte Card - The Last Business Card You'll Ever Need</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/landing-page.css" />
+  </head>
+  <body>
     <!-- Hero Section -->
     <section class="hero-section">
-      <div class="hero-card card">
-        <div class="hero-content">
-          <h1 class="hero-title">Smart NFC Business Cards</h1>
-          <p class="hero-subtitle">The Future of Professional Networking</p>
-          <p class="hero-description">
-            Never run out of business cards again. Share your contact info instantly with a simple tap on any smartphone. No app required.
-          </p>
-          
-          <div class="hero-features">
-            <div class="hero-feature">
-              <span class="hero-feature-icon">📱</span>
-              <span>Instant sharing</span>
-            </div>
-            <div class="hero-feature">
-              <span class="hero-feature-icon">🔄</span>
-              <span>Always updated</span>
-            </div>
-            <div class="hero-feature">
-              <span class="hero-feature-icon">🌱</span>
-              <span>Eco-friendly</span>
-            </div>
-          </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-label">WYTE CARD</div>
+          <h1 class="hero-headline">
+            <span class="headline-line">The Last</span>
+            <span class="headline-line">Business Card</span>
+            <span class="headline-line">You'll Ever Need</span>
+          </h1>
+          <p class="hero-subheadline">One tap. Instant connection. Forever.</p>
         </div>
         
         <div class="hero-visual">
-          <div class="product-showcase">
-            <div class="nfc-card-mockup">
+          <div class="card-spotlight">
+            <div class="wyte-card-hero">
               <div class="card-front">
-                <div class="nfc-indicator">NFC</div>
-                <div class="card-info">
-                  <div class="card-name">Sarah Johnson</div>
-                  <div class="card-title">UX Designer</div>
-                  <div class="card-company">TechCorp Inc.</div>
-                </div>
-                <div class="nfc-symbol">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 8L18 8"></path>
-                    <path d="M6 12L18 12"></path>
-                    <path d="M6 16L14 16"></path>
-                  </svg>
+                <div class="card-content">
+
                 </div>
               </div>
+              <div class="card-glow"></div>
             </div>
-            <div class="phone-mockup">
-              <div class="phone-screen">
-                <div class="contact-preview">
-                  <div class="contact-avatar">SJ</div>
-                  <div class="contact-info">
-                    <div class="contact-name">Sarah Johnson</div>
-                    <div class="contact-role">UX Designer</div>
-                  </div>
-                  <button class="save-contact-btn">Save Contact</button>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-cta">
+        <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" class="primary-cta">
+          GET WYTE CARD — $19.99
+        </a>
+      </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-section">
+      <h2 class="section-title">Tired of These Networking Nightmares?</h2>
+      
+      <div class="pain-grid">
+        <div class="pain-item">
+          <h3 class="pain-title">Awkward Contact Exchange</h3>
+          <p class="pain-description">Fumbling with phones, spelling names wrong, and losing potential connections in the chaos of networking events.</p>
+        </div>
+        
+        <div class="pain-item">
+          <h3 class="pain-title">Endless Card Reprinting</h3>
+          <p class="pain-description">Spending hundreds on reprints every time your job title, phone number, or email changes. Cards become outdated instantly.</p>
+        </div>
+        
+        <div class="pain-item">
+          <h3 class="pain-title">Cards Get Lost & Forgotten</h3>
+          <p class="pain-description">Your carefully designed business cards end up in wallets, never to be seen again. Zero follow-up, zero ROI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+      <h2 class="section-title">Imagine Networking Like This Instead</h2>
+      
+      <div class="vision-grid">
+        <div class="vision-item">
+          <h3 class="vision-title">Instant Professional Connection</h3>
+          <p class="vision-description">One simple tap and your complete contact info appears on their phone. They save it immediately. Connection secured.</p>
+        </div>
+        
+        <div class="vision-item">
+          <h3 class="vision-title">Always Current Information</h3>
+          <p class="vision-description">Update your info once and it changes everywhere instantly. Everyone always has your latest details.</p>
+        </div>
+        
+        <div class="vision-item">
+          <h3 class="vision-title">Trackable Networking ROI</h3>
+          <p class="vision-description">See exactly who viewed your profile and when. Turn networking into a measurable business activity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+      <h2 class="section-title">Introducing Wyte Card</h2>
+      <p class="product-subtitle">The smart NFC business card that bridges the gap between old-school networking and digital convenience.</p>
+      
+      <div class="how-it-works">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h4>Order Your Premium NFC Card</h4>
+            <p>We ship your credit-card-sized NFC card within 5-7 business days.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h4>Setup Your Digital Profile</h4>
+            <p>Tap your card with your phone to activate it, then customize your digital profile in minutes.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h4>Start Networking Like a Pro</h4>
+            <p>Simply tap your card on anyone's phone to instantly share your contact info. They can save it with one tap.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-      <div class="pricing-card card">
-        <div class="pricing-header">
-          <h2 class="section-title">Get Your Smart Cards</h2>
-          <div class="price-display">
-            <span class="price">$29.99</span>
-            <span class="price-note">per card + platform access</span>
-          </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2 class="cta-title">Get Your Wyte Card Today</h2>
+        <p class="cta-subtitle">Join thousands of professionals who've revolutionized their networking</p>
+        
+        <div class="pricing-display">
+          <div class="price">$19.99</div>
+          <div class="price-note">One-time payment + lifetime platform access</div>
         </div>
         
-        <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" id="buy-now-button" class="cta-button">
-          <span class="cta-text">Order Your Cards</span>
-          <span class="cta-icon">→</span>
+        <a href="https://buy.stripe.com/00w6oI7ZxdkI8kYgez6g807" class="cta-button">
+          Order Your Wyte Card Now
         </a>
         
-        <div class="pricing-features">
-          <div class="pricing-feature">
-            <span class="check-icon">✓</span>
-            <span>Physical NFC card (credit card size)</span>
-          </div>
-          <div class="pricing-feature">
-            <span class="check-icon">✓</span>
-            <span>Digital profile platform access</span>
-          </div>
-          <div class="pricing-feature">
-            <span class="check-icon">✓</span>
-            <span>Unlimited profile updates</span>
-          </div>
-          <div class="pricing-feature">
-            <span class="check-icon">✓</span>
-            <span>Analytics & insights</span>
-          </div>
+        <div class="features-list">
+          <div class="feature-item">Premium NFC card (credit card size)</div>
+          <div class="feature-item">Digital profile platform access</div>
+          <div class="feature-item">Unlimited profile updates</div>
+          <div class="feature-item">Analytics & networking insights</div>
+          <div class="feature-item">Works with all smartphones (no app needed)</div>
+          <div class="feature-item">Free shipping (5-7 business days)</div>
         </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features-section">
-      <div class="features-card card">
-        <h2 class="section-title">Why Choose TapCard?</h2>
         
-        <div class="features-grid">
-          <div class="feature-item">
-            <div class="feature-icon">📲</div>
-            <h3 class="feature-title">Instant Sharing</h3>
-            <p class="feature-description">Just tap your card on any smartphone to instantly share your contact details. Works with iPhone and Android.</p>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-icon">🔄</div>
-            <h3 class="feature-title">Always Updated</h3>
-            <p class="feature-description">Update your information once and it changes everywhere. No more outdated business cards.</p>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-icon">🌐</div>
-            <h3 class="feature-title">Professional Profile</h3>
-            <p class="feature-description">Beautiful digital profile with photo, contact info, social links, and more. Make a lasting impression.</p>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-icon">📊</div>
-            <h3 class="feature-title">Track Engagement</h3>
-            <p class="feature-description">See who viewed your profile and when. Get insights into your networking effectiveness.</p>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-icon">🌱</div>
-            <h3 class="feature-title">Eco-Friendly</h3>
-            <p class="feature-description">Reduce paper waste with digital cards that last forever. One card replaces thousands of paper cards.</p>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">No App Required</h3>
-            <p class="feature-description">Recipients don't need to download anything. Works with built-in NFC on all modern smartphones.</p>
-          </div>
+        <div class="guarantee">
+          30-day money-back guarantee • 2-year warranty • Premium customer support
         </div>
       </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works-section">
-      <div class="how-it-works-card card">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-subtitle">Get started in minutes, networking like a pro</p>
-        
-        <div class="steps-container">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>Order Your Cards</h3>
-              <p>Choose your quantity and we'll ship premium NFC cards directly to your door within 5-7 business days.</p>
-            </div>
-          </div>
-          
-          <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>Setup Your Profile</h3>
-              <p>Tap your card with your phone to activate it, then customize your digital profile with photo, contact info, and links.</p>
-            </div>
-          </div>
-          
-          <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>Start Networking</h3>
-              <p>Simply tap your card on anyone's phone to instantly share your contact info. They can save it with one tap.</p>
-            </div>
-          </div>
-          
-          <div class="step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h3>Track & Update</h3>
-              <p>See who viewed your profile and update your information anytime. Changes reflect instantly on all shared profiles.</p>
-            </div>
-          </div>
+    <!-- Social Proof -->
+    <section class="social-proof">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">2,847+</div>
+          <div class="stat-label">Professionals networking smarter</div>
         </div>
-      </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-      <div class="benefits-card card">
-        <h2 class="section-title">Perfect For</h2>
-        
-        <div class="benefits-grid">
-          <div class="benefit-category">
-            <h3 class="benefit-title">Sales Professionals</h3>
-            <ul class="benefit-list">
-              <li>Never run out of cards at events</li>
-              <li>Track prospect engagement</li>
-              <li>Update pricing and services instantly</li>
-            </ul>
-          </div>
-          
-          <div class="benefit-category">
-            <h3 class="benefit-title">Real Estate Agents</h3>
-            <ul class="benefit-list">
-              <li>Share property listings instantly</li>
-              <li>Include virtual tour links</li>
-              <li>Professional, modern image</li>
-            </ul>
-          </div>
-          
-          <div class="benefit-category">
-            <h3 class="benefit-title">Entrepreneurs</h3>
-            <ul class="benefit-list">
-              <li>Stand out at networking events</li>
-              <li>Include pitch deck links</li>
-              <li>Track investor interactions</li>
-            </ul>
-          </div>
-          
-          <div class="benefit-category">
-            <h3 class="benefit-title">Consultants</h3>
-            <ul class="benefit-list">
-              <li>Share portfolio and case studies</li>
-              <li>Include calendar booking links</li>
-              <li>Professional credibility boost</li>
-            </ul>
-          </div>
+        <div class="stat">
+          <div class="stat-number">47,293</div>
+          <div class="stat-label">Instant connections made</div>
         </div>
-      </div>
-    </section>
-
-    <!-- Shipping Info -->
-    <section class="shipping-section">
-      <div class="shipping-card card">
-        <h2 class="section-title">Shipping & Support</h2>
-        
-        <div class="shipping-info">
-          <div class="shipping-item">
-            <div class="shipping-icon">🚚</div>
-            <div class="shipping-content">
-              <h3>Fast Shipping</h3>
-              <p>Free shipping on all orders. Cards ship within 5-7 business days.</p>
-            </div>
-          </div>
-          
-          <div class="shipping-item">
-            <div class="shipping-icon">💯</div>
-            <div class="shipping-content">
-              <h3>Quality Guarantee</h3>
-              <p>Premium materials with 2-year warranty. Not satisfied? Full refund within 30 days.</p>
-            </div>
-          </div>
-          
-          <div class="shipping-item">
-            <div class="shipping-icon">🎯</div>
-            <div class="shipping-content">
-              <h3>24/7 Support</h3>
-              <p>Our team is here to help with setup, customization, and any questions you have.</p>
-            </div>
-          </div>
+        <div class="stat">
+          <div class="stat-number">98.7%</div>
+          <div class="stat-label">Customer satisfaction rate</div>
         </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="mailto:support@tapcard.co">Support</a>
       </div>
       
-      <div class="footer-section">
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="tel:+16825529882">Contact</a>
+      <div class="testimonial">
+        <p class="testimonial-text">"I closed 3 deals from connections made with my Wyte Card last month. Best $30 I've ever spent."</p>
+        <div class="testimonial-author">Sarah M., Sales Director</div>
       </div>
-      
-      <div class="footer-section">
-        <h4>Connect</h4>
-        <a href="https://www.instagram.com/tarloksingh111/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.youtube.com/@tarlok-r5t" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://www.tiktok.com/@galareel11" target="_blank" rel="noopener noreferrer">TikTok</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2025 TapCard. All rights reserved.</p>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Track Buy Button Click -->
-  <script>
-  document.getElementById("buy-now-button").addEventListener("click", function() {
-    mixpanel.track("Buy Button Clicked", {
-      page: window.location.pathname
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Wyte Card. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="mailto:support@wytecard.co">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </footer>
+
+    <!-- Analytics -->
+    <script type="text/javascript">
+    (function(e,a){
+      if(!a.__SV){
+        var b=window;try{
+          var c,l,i,j=b.location,g=j.hash;
+          c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};
+          if(g && c(g,"state")){
+            i=JSON.parse(decodeURIComponent(c(g,"state")));
+            if(i.action==="mpeditor"){
+              b.sessionStorage.setItem("_mpcehash",g);
+              history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search);
+            }
+          }
+        }catch(m){}
+        var k,h;window.mixpanel=a;a._i=[];
+        a.init=function(b,c,f){
+          function e(b,a){
+            var c=a.split(".");
+            if(c.length==2){b=b[c[0]];a=c[1]}
+            b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}
+          }
+          var d=a;
+          if(typeof f!=="undefined"){d=a[f]=[]}else{f="mixpanel"}
+          d.people=d.people||[];
+          d.toString=function(b){
+            var a="mixpanel";
+            if(f!=="mixpanel"){a+="."+f}
+            if(!b){a+=" (stub)"}
+            return a
+          };
+          d.people.toString=function(){
+            return d.toString(1)+".people (stub)"
+          };
+          k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+          for(h=0;h<k.length;h++)e(d,k[h]);
+          a._i.push([b,c,f])
+        };
+        a.__SV=1.2;
+        var script=e.createElement("script");
+        script.type="text/javascript";
+        script.async=!0;
+        script.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+        var firstScript=e.getElementsByTagName("script")[0];
+        firstScript.parentNode.insertBefore(script,firstScript)
+      }
+    })(document,window.mixpanel||[]);
+
+    mixpanel.init("d238ee2c30a3b6997c2521e67ec6f8fb");
+
+    window.addEventListener("load", function () {
+      mixpanel.track("Page Viewed", {
+        page: window.location.pathname,
+        distinct_id: mixpanel.get_distinct_id()
+      });
     });
-  });
-  </script>
-</body>
+
+    // Track CTA clicks
+    document.querySelector('.cta-button').addEventListener("click", function() {
+      mixpanel.track("CTA Button Clicked", {
+        page: window.location.pathname,
+        button_text: "Order Your Wyte Card Now"
+      });
+    });
+    </script>
+  </body>
 </html>
