@@ -42,8 +42,6 @@
             <div class="wyte-card-hero">
               <div class="card-front">
                 <div class="card-content">
-                  <div class="demo-text">Tap Phone Here</div>
-                  <div class="nfc-symbol">NFC</div>
                 </div>
               </div>
             </div>
@@ -67,25 +65,25 @@
           <div class="research-stat">
             <div class="stat-number">88%</div>
             <div class="stat-text">of business cards are thrown away within one week</div>
-            <div class="stat-source">— Multiple industry studies</div>
+            <div class="stat-source">— Adobe study, multiple sources</div>
           </div>
           
           <div class="research-stat">
-            <div class="stat-number">80%</div>
-            <div class="stat-text">of sales require 5+ follow-up calls, but 48% of reps never make a second attempt</div>
-            <div class="stat-source">— Sales follow-up research</div>
+            <div class="stat-number">42%</div>
+            <div class="stat-text">of sales reps feel they don't have enough information before making calls</div>
+            <div class="stat-source">— ZoomInfo research</div>
           </div>
           
           <div class="research-stat">
-            <div class="stat-number">28%</div>
-            <div class="stat-text">of business is lost when executives stop networking</div>
-            <div class="stat-source">— Oxford Economics study</div>
+            <div class="stat-number">27%</div>
+            <div class="stat-text">of sales reps' time is wasted dealing with inaccurate contact data</div>
+            <div class="stat-source">— B2B contact data studies</div>
           </div>
         </div>
 
         <div class="lost-revenue-calculator">
-          <h3 class="calculator-title">Calculate Your Annual Lost Revenue From Bad Business Cards</h3>
-          <div class="calculator-description">Based on networking research and follow-up statistics</div>
+          <h3 class="calculator-title">See How Many Business Cards You're Wasting</h3>
+          <div class="calculator-description">Based on research: 88% of business cards are thrown away within one week</div>
           
           <div class="calculator-inputs">
             <div class="input-group">
@@ -93,17 +91,39 @@
               <input type="number" id="cards-monthly" value="50" min="1">
             </div>
             
-            <div class="input-group">
-              <label>Average deal value when you close:</label>
-              <input type="number" id="deal-value" value="5000" min="1">
+            <div class="calculation-result">
+              <div class="result-label">Cards you're wasting every year:</div>
+              <div class="result-amount" id="wasted-cards">528</div>
+              <div class="result-explanation">
+                That's 88% of your <span id="total-cards-simple">600</span> cards going straight to the trash
+              </div>
             </div>
             
-            <div class="calculation-result">
-              <div class="result-label">Your estimated annual lost revenue:</div>
-              <div class="result-amount" id="lost-revenue">$6,600</div>
-              <div class="result-explanation">
-                Based on: 88% cards thrown away + 2.5% conversion rate
+            <div class="cost-breakdown">
+              <div class="cost-label">Cost of printing those wasted cards:</div>
+              <div class="cost-amount" id="printing-cost">$105</div>
+              <div class="cost-note">Based on $0.20 per card printing cost</div>
+            </div>
+          </div>
+          
+          <!-- Card Breakdown Visualization -->
+          <div class="card-breakdown">
+            <h4 class="breakdown-title">Here's What Happens to Your <span id="total-cards">600</span> Business Cards</h4>
+            
+            <div class="breakdown-stats">
+              <div class="breakdown-item thrown-away">
+                <div class="breakdown-number" id="thrown-away-count">528</div>
+                <div class="breakdown-label">Cards Thrown Away (88%)</div>
               </div>
+              
+              <div class="breakdown-item kept">
+                <div class="breakdown-number" id="kept-count">72</div>
+                <div class="breakdown-label">Cards Actually Kept (12%)</div>
+              </div>
+            </div>
+            
+            <div class="breakdown-conclusion">
+              <strong>The Real Problem:</strong> You're printing <span id="waste-cards">528</span> cards every year that go straight to the trash. That's <span id="printing-waste">$105</span> wasted on printing alone - plus all the potential connections you'll never make.
             </div>
           </div>
         </div>
@@ -289,24 +309,24 @@
       // Calculator functionality
       function calculateLostRevenue() {
         const cardsMonthly = parseInt(document.getElementById('cards-monthly').value) || 50;
-        const dealValue = parseInt(document.getElementById('deal-value').value) || 5000;
         
-        // Corrected calculation based on research:
+        // Simple, honest calculation
         const cardsAnnual = cardsMonthly * 12;
+        const wastedCards = Math.round(cardsAnnual * 0.88); // 88% thrown away
+        const keptCards = cardsAnnual - wastedCards;
+        const printingCost = Math.round(wastedCards * 0.20); // $0.20 per card
         
-        // Current system: Traditional business cards
-        const keptCards = cardsAnnual * 0.12; // Only 12% are kept (88% thrown away)
-        const currentDeals = keptCards * 0.025; // 2.5% conversion rate on kept cards
-        const currentRevenue = currentDeals * dealValue;
+        // Update main calculation
+        document.getElementById('wasted-cards').textContent = wastedCards.toLocaleString();
+        document.getElementById('total-cards-simple').textContent = cardsAnnual.toLocaleString();
+        document.getElementById('printing-cost').textContent = '$' + printingCost.toLocaleString();
         
-        // Perfect system: NFC cards (all contacts saved)
-        const perfectDeals = cardsAnnual * 0.025; // 2.5% conversion rate on all cards
-        const perfectRevenue = perfectDeals * dealValue;
-        
-        // Lost revenue = Perfect system - Current system
-        const lostRevenue = Math.round(perfectRevenue - currentRevenue);
-        
-        document.getElementById('lost-revenue').textContent = '$' + lostRevenue.toLocaleString();
+        // Update breakdown numbers
+        document.getElementById('total-cards').textContent = cardsAnnual.toLocaleString();
+        document.getElementById('thrown-away-count').textContent = wastedCards.toLocaleString();
+        document.getElementById('kept-count').textContent = keptCards.toLocaleString();
+        document.getElementById('waste-cards').textContent = wastedCards.toLocaleString();
+        document.getElementById('printing-waste').textContent = '$' + printingCost.toLocaleString();
       }
 
       // Wait for DOM to load before adding event listeners
@@ -316,14 +336,12 @@
 
         // Update calculator on input change
         document.getElementById('cards-monthly').addEventListener('input', calculateLostRevenue);
-        document.getElementById('deal-value').addEventListener('input', calculateLostRevenue);
 
         // Track calculator usage
         document.getElementById('cards-monthly').addEventListener('change', function() {
           if (typeof mixpanel !== 'undefined') {
             mixpanel.track("Calculator Used", {
-              cards_monthly: this.value,
-              deal_value: document.getElementById('deal-value').value
+              cards_monthly: this.value
             });
           }
         });
